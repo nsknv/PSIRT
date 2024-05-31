@@ -10,7 +10,8 @@ Below are notifications for security and privacy events within NVIDIA Open Sourc
 
 | Date       | Subject |
 |------------|---------|
-| Mupdated 05/29/2024 10:14 PM | [Triton Inference Server - May 2024](./bulletins/5546.md) |
+| Updated 05/29/2024 10:14 PM | [Triton Inference Server - May 2024](./bulletins/5546.md) |
+| Updated [Date and Time] | [[Title]](./bulletins/template.md) |
 | Updated [Date and Time] | [[Title]](./bulletins/template.md) |
 
 ## Overview
