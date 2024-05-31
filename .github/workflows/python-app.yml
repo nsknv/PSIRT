@@ -4,8 +4,7 @@ on:
   push:
     paths:
       - 'bulletins/**'
-  schedule:
-    - cron: '0 0 * * *' # Runs every day at midnight
+  workflow_dispatch: # Allows manual triggering of the workflow
 
 jobs:
   update-readme:
@@ -35,4 +34,5 @@ jobs:
         git add README.md Table_Of_Contents.md
         git commit -m 'Automated update of README.md and Table_Of_Contents.md'
         git push
-
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
