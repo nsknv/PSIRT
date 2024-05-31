@@ -25,11 +25,13 @@ The purpose of this repository is to:
 
 ## Repository Structure
 ```
-.
 ├── Code_Of_Conduct.md
 ├── README.md
+├── Table_Of_Contents.md
+├── app.py
 └── bulletins
-    └── 5546.md
+    ├── XXXX.md
+    └── template.md
 ```
 
 - `Code_Of_Conduct.md`: This document outlines the expected behavior and guidelines for contributors.
