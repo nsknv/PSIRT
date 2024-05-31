@@ -24,13 +24,13 @@ The purpose of this repository is to:
 
 ## Repository Structure
 The repository is organized as follows:
-\`\`\`plaintext
+```
 .
 ├── Code_Of_Conduct.md
 ├── README.md
 └── bulletins
     └── 5546.md
-\`\`\`
+```
 
 - `Code_Of_Conduct.md`: This document outlines the expected behavior and guidelines for contributors.
 - `README.md`: The file you are currently reading, providing an overview of the repository.
