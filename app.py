@@ -1,5 +1,4 @@
 import os
-from datetime import datetime
 
 bulletins_dir = './bulletins'
 toc_file_path = './Table_Of_Contents.md'
@@ -27,7 +26,7 @@ for bulletin_file in sorted(os.listdir(bulletins_dir)):
                 if line.startswith("**Severity:"):
                     type_ = line.split('**')[1].strip()
                     
-            toc_content += f"\n| {date} | {type_} | [{subject}]({os.path.join(bulletins_dir, bulletin_file)}) |"
+            toc_content += f"| {date} | {type_} | [{subject}]({os.path.join(bulletins_dir, bulletin_file)}) |\n"
 
 with open(toc_file_path, 'w') as toc_file:
     toc_file.write(toc_content)
