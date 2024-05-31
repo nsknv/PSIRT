@@ -1,4 +1,5 @@
 import os
+import re
 
 bulletins_dir = './bulletins'
 toc_file_path = './Table_Of_Contents.md'
@@ -13,7 +14,7 @@ Below are notifications for security and privacy events within NVIDIA Open Sourc
 """
 
 for bulletin_file in sorted(os.listdir(bulletins_dir)):
-    if bulletin_file.endswith('.md'):
+    if bulletin_file.endswith('.md') and re.search(r'\d', bulletin_file):
         with open(os.path.join(bulletins_dir, bulletin_file), 'r') as file:
             lines = file.readlines()
             date = "N/A"
