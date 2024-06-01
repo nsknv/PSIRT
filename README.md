@@ -10,7 +10,7 @@ Below are notifications for security and privacy events within NVIDIA Open Sourc
 
 | Date       | Subject |
 |------------|---------|
-
+| Updated 05/29/2024 10:14 PM | [Triton Inference Server - May 2024](./bulletins/5546.md) |
 
 ## Overview
 The NVIDIA PSIRT is responsible for investigating, mitigating, and communicating security vulnerabilities related to NVIDIA products. This repository contains security bulletins, advisories, and updates to help users stay informed about potential security issues and the steps required to mitigate them.
