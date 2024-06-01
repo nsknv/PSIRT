@@ -27,7 +27,7 @@ The purpose of this repository is to:
 ├── Code_Of_Conduct.md
 ├── README.md
 ├── Table_Of_Contents.md
-├── app.py
+├── update_readme.py
 └── bulletins
     ├── XXXX.md
     └── template.md
