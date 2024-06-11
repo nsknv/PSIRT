@@ -31,7 +31,7 @@ jobs:
       - name: Copy files to public repo
         run: |
           rsync -av --exclude='.git' --exclude='.github' . Public/
-          cd public-repo
+          cd Public
           git add .
           git commit -m "Deploy from private repo"
           git push origin main
