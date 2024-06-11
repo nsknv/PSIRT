@@ -1,0 +1,39 @@
+name: Deploy to Public Repo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout private repo
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GH_PAT }}
+      
+      - name: Set up Git config
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+
+      - name: Clone public repo
+        run: |
+          git clone https://github.com/nsknv/Public.git Public
+          cd Public
+          git checkout main
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+      
+      - name: Copy files to public repo
+        run: |
+          rsync -av --exclude='.git' --exclude='.github' . Public/
+          cd public-repo
+          git add .
+          git commit -m "Deploy from private repo"
+          git push origin main
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
