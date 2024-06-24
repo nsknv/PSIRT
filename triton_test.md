@@ -1,16 +1,19 @@
 
 
-Security Bulletin: Triton Inference Server - May 2024
-=====================================================
+Security Bulletin: NVIDIA GPU Display Driver - June 2024
+========================================================
 
 
 
 
- Updated 05/29/2024 10:14 PM
+ Updated 06/06/2024 09:07 PM
 
 
 
-NVIDIA has released a software update for NVIDIA Triton Inference Server to address the issue disclosed in this bulletin. To protect your system, install the latest release from the [Triton Inference Server Releases](https://github.com/triton-inference-server/server/releases) page on GitHub, and view the [Secure Deployment Considerations Guide](https://github.com/triton-inference-server/server/blob/main/docs/customization_guide/deploy.md).
+NVIDIA has released a software security update for NVIDIA GPU Display Driver to address the issues that are disclosed in this bulletin.
+
+
+To protect your system, download and install this software update through the [NVIDIA Driver Downloads](https://www.nvidia.com/Download/index.aspx) page or, for the vGPU software and Cloud Gaming updates, through the NVIDIA Licensing Portal.
 
 
 Go to [NVIDIA Product Security](https://www.nvidia.com/security/).
@@ -28,46 +31,194 @@ Go to [NVIDIA Product Security](https://www.nvidia.com/security/).
 ### Details
 
 
-This section provides a summary of potential vulnerabilities that this security update addresses and their impact. The description uses [CWE™](https://cwe.mitre.org/), and the base score and vector use [CVSS v3.1](https://www.first.org/cvss/specification-document) standards.
+This section provides a summary of potential vulnerabilities that this security update addresses and their impact. Descriptions use [CWE™](https://cwe.mitre.org/), and base scores and vectors use [CVSS v3.1](https://www.first.org/cvss/user-guide) standards.
 
 
- 
+#### NVIDIA GPU Display Driver
 
 
+| CVE ID | Description | Vector | Base Score | Severity | CWE | Impacts |
+|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|-------------:|:-----------|:--------|:----------------------------------------------------------------------------------------------------|
+| CVE‑2024‑0090 | NVIDIA GPU driver for Windows and Linux contains a vulnerability where a user can cause an out-of-bounds write. A successful exploit of this vulnerability might lead to code execution, denial of service, escalation of privileges, information disclosure, and data tampering. | AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H | 7.8 | High | CWE‑787 | Code execution, denial of service, escalation of privileges, information disclosure, data tampering |
+| CVE‑2024‑0089 | NVIDIA GPU Display Driver for Windows contains a vulnerability where the information from a previous client or another process could be disclosed. A successful exploit of this vulnerability might lead to code execution, information disclosure, or data tampering. | AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H | 7.8 | High | CWE‑665 | Code execution, information disclosure, data tampering |
+| CVE‑2024‑0091 | NVIDIA GPU Display Driver for Windows and Linux contains a vulnerability where a user can cause an untrusted pointer dereference by executing a driver API. A successful exploit of this vulnerability might lead to denial of service, information disclosure, and data tampering. | AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H | 7.8 | High | CWE‑822 | Denial of service, information disclosure, data tampering |
+| CVE‑2024‑0093 | NVIDIA GPU software for Linux contains a vulnerability where it can expose sensitive information to an actor that is not explicitly authorized to have access to that information. A successful exploit of this vulnerability might lead to information disclosure. | AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:N/A:N | 6.5 | Medium | CWE‑200 | Information disclosure |
+| CVE‑2024‑0092 | NVIDIA GPU Driver for Windows and Linux contains a vulnerability where an improper check or improper handling of exception conditions might lead to denial of service. | AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H | 5.5 | Medium | CWE‑703 | Denial of service |
+#### NVIDIA vGPU Software
 
-| ('CVE ID', 'CVE-2024-0103', 'CVE-2024-0095') | ('Description', 'NVIDIA Triton Inference Server for Linux contains a vulnerability where a user may cause an incorrect Initialization of resource by network issue. A successful exploit of this vulnerability may lead to information disclosure.', 'NVIDIA Triton Inference Server for Linux and Windows contains a vulnerability where a user can inject forged logs and executable commands by injecting arbitrary data as a new log entry. A successful exploit of this vulnerability might lead to code execution, denial of service, escalation of privileges, information disclosure, and data tampering.') | ('Vector', 'AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N', 'AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:L/A:H') | ('Base Score', '5.4', '4.3') | ('Severity', 'Medium', 'Medium') | ('CWE', 'CWE-1419', 'CWE-117') | ('Impacts', 'Information disclosure', 'Data tampering') |
-|------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|--------------------------------|------------------------------------|----------------------------------|-----------------------------------------------------------|
 
+| CVE ID | Description | Vector | Base Score | Severity | CWE | Impacts |
+|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|-------------:|:-----------|:--------|:------------------------------------------------------------------------------------|
+| CVE‑2024‑0099 | NVIDIA vGPU software for Linux contains a vulnerability in the Virtual GPU Manager, where the guest OS could cause buffer overrun in the host. A successful exploit of this vulnerability might lead to information disclosure, data tampering, escalation of privileges, and denial of service. | AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H | 7.8 | High | CWE‑120 | Information disclosure, data tampering, escalation of privileges, denial of service |
+| CVE‑2024‑0084 | NVIDIA vGPU software for Linux contains a vulnerability in the Virtual GPU Manager, where the guest OS could execute privileged operations. A successful exploit of this vulnerability might lead to information disclosure, data tampering, escalation of privileges, and denial of service. | AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H | 7.8 | High | CWE‑250 | Information disclosure, data tampering, escalation of privileges, denial of service |
+| CVE‑2024‑0085 | NVIDIA vGPU software for Windows and Linux contains a vulnerability where unprivileged users could execute privileged operations on the host. A successful exploit of this vulnerability might lead to data tampering, escalation of privileges, and denial of service. | AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:H/A:H | 6.3 | Medium | CWE‑266 | Data tampering, escalation of privileges, denial of service |
+| CVE‑2024‑0094 | NVIDIA vGPU software for Linux contains a vulnerability in the Virtual GPU Manager, where an untrusted guest VM can cause improper control of the interaction frequency in the host. A successful exploit of this vulnerability might lead to denial of service. | AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H | 5.5 | Medium | CWE‑799 | Denial of service |
+| CVE‑2024‑0086 | NVIDIA vGPU software for Linux contains a vulnerability where the software can dereference a NULL pointer. A successful exploit of this vulnerability might lead to denial of service and undefined behavior in the vGPU plugin. | AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H | 5.5 | Medium | CWE‑476 | Denial of service, undefined behavior |
 The NVIDIA risk assessment is based on an average of risk across a diverse set of installed systems and may not represent the true risk to your local installation. NVIDIA recommends consulting a security or IT professional to evaluate the risk to your specific configuration.
 
 
-### Security Updates
+### Security Updates for NVIDIA GPU Display Driver
 
 
-The following tables list the NVIDIA systems affected, firmware versions affected, and the updated version that includes this security update.
+#### CVE IDs Addressed in Each Windows Driver Branch
 
 
-
-| ('CVE IDs Addressed', 'CVE-2024-0095', 'CVE-2024-0103') | ('Affected Products', 'NVIDIA Triton Inference Server', 'NVIDIA Triton Inference Server') | ('Platform or OS', 'Linux, Windows', 'Linux, Windows') | ('Affected Versions', '20.10 to 24.04', '23.10 to 24.04') | ('Updated Version', '24.05', '24.05') |
-|-----------------------------------------------------------|---------------------------------------------------------------------------------------------|----------------------------------------------------------|-------------------------------------------------------------|-----------------------------------------|
-
-### Notes
+The following table lists the CVE IDs addressed by the update in each Windows driver branch.
 
 
-* Users deploying NVIDIA Triton Inference Server in production settings should follow the [Secure Deployment Considerations Guide](https://github.com/triton-inference-server/server/blob/main/docs/customization_guide/deploy.md) and ensure that logging and shared memory APIs are protected for use by authorized users.
+| Windows Driver Branch | CVE IDs Addressed |
+|:------------------------|:-----------------------------------------------------------|
+| R555, R550 | CVE‑2024‑0089, CVE‑2024‑0090, CVE‑2024‑0091, CVE‑2024‑0092 |
+| R535, R470 | CVE‑2024‑0089, CVE‑2024‑0090, CVE‑2024‑0092 |
+#### Security Updates for NVIDIA GPU Windows Display Driver
+
+
+The following table lists the NVIDIA software products affected, Windows driver versions affected, and the updated version available from nvidia.com that includes this security update. Download the updates from the [NVIDIA Driver Downloads](https://www.nvidia.com/Download/index.aspx) page.
+
+
+| Software Product | Operating System | Driver Branch | Affected Driver Versions | Updated Driver Version |
+|:------------------------|:-------------------|:----------------|:--------------------------------------------------------------------------|-------------------------:|
+| GeForce | Windows | R555 | All driver versions prior to 555.99 | 555.99 |
+| GeForce | Windows 10 and 11 | R470 | All driver versions prior 475.06 to for support of GeForce Kepler desktop | 475.06 |
+| GeForce | Windows 7 and 8.x | R470 | All driver versions prior to 475.06 | 475.06 |
+| Studio | Windows | R555 | All driver versions prior to 555.99 | 555.99 |
+| NVIDIA RTX, Quadro, NVS | Windows | R555 | All driver versions prior to 555.99 | 555.99 |
+| NVIDIA RTX, Quadro, NVS | Windows | R550 | All driver versions prior to 552.55 | 552.55 |
+| NVIDIA RTX, Quadro, NVS | Windows | R535 | All driver versions prior to 538.67 | 538.67 |
+| NVIDIA RTX, Quadro, NVS | Windows | R470 | All driver versions prior to 475.06 | 475.06 |
+| Tesla | Windows | R550 | All driver versions prior to 552.55 | 552.55 |
+| Tesla | Windows | R535 | All driver versions prior to 538.67 | 538.67 |
+| Tesla | Windows | R470 | All driver versions prior to 475.06 | 475.06 |
+#### CVE IDs Addressed in Each Linux Driver Branch
+
+
+The following table lists the CVE IDs addressed by the update in each Linux driver branch.
+
+
+| Linux Driver Branch | CVE IDs Addressed |
+|:----------------------|:--------------------------------------------|
+| R555, R550 | CVE‑2024‑0090, CVE‑2024‑0091, CVE‑2024‑0092 |
+| R535, R470 | CVE‑2024‑0090, CVE‑2024‑0092 |
+#### Affected Components, Affected Versions, and Updated Versions
+
+
+The following table lists the NVIDIA software products affected, Linux driver versions affected, and the updated version available from nvidia.com that includes this security update. Download the updates from the [NVIDIA Driver Downloads](https://www.nvidia.com/Download/index.aspx) page.
+
+
+| Software Product | Operating System | Driver Branch | Affected Driver Versions | Updated Driver Version |
+|:------------------------|:-------------------|:----------------|:----------------------------------------|:-------------------------|
+| GeForce | Linux | R555 | All driver versions prior to 555.52.04 | 555.52.04 |
+| GeForce | Linux | R550 | All driver versions prior to 550.90.07 | 550.90.07 |
+| GeForce | Linux | R535 | All driver versions prior to 535.183.01 | 535.183.01 |
+| GeForce | Linux | R470 | All driver versions prior to 470.256.02 | 470.256.02 |
+| NVIDIA RTX, Quadro, NVS | Linux | R555 | All driver versions prior to 555.52.04 | 555.52.04 |
+| NVIDIA RTX, Quadro, NVS | Linux | R550 | All driver versions prior to 550.90.07 | 550.90.07 |
+| NVIDIA RTX, Quadro, NVS | Linux | R535 | All driver versions prior to 535.183.01 | 535.183.01 |
+| NVIDIA RTX, Quadro, NVS | Linux | R470 | All driver versions prior to 470.256.02 | 470.256.02 |
+| Tesla | Linux | R550 | All driver versions prior to 550.90.07 | 550.90.07 |
+| Tesla | Linux | R535 | All driver versions prior to 535.183.01 | 535.183.01 |
+| Tesla | Linux | R470 | All driver versions prior to 470.256.02 | 470.256.02 |
+#### Notes
+
+
+* Your computer hardware vendor might provide you with Windows GPU display driver versions including 555.94, 555.91, 552.23, and 475.04, which also contain the security updates.
+* The tables above might not be a comprehensive list of all affected supported versions or branch releases and might be updated as more information becomes available.
+* Earlier software branch releases that support these products might also be affected. If you are using an earlier branch release for which an update version is not listed above, upgrade to the latest branch release.
+
+
+### Security Updates for NVIDIA vGPU Software
+
+
+#### CVE IDs Addressed in Each Windows vGPU Driver Branch
+
+
+The following table lists the CVE IDs addressed by the update in each Windows vGPU driver branch.
+
+
+| Windows Driver Branch | CVE IDs Addressed |
+|:------------------------|:--------------------------------------------|
+| R550, R535, R470 | CVE‑2024‑0089, CVE‑2024‑0090, CVE‑2024‑0091 |
+#### CVE IDs Addressed in Each Linux vGPU Driver Branch
+
+
+The following table lists the CVE IDs addressed by the update in each Linux vGPU driver branch.
+
+
+| Linux Driver Branch | CVE IDs Addressed |
+|:----------------------|:------------------------------|
+| R550, R535, R470 | CVE‑2024‑0090, CVE‑2024‑0091, |
+#### CVE IDs Addressed in Each vGPU Manager Driver Branch
+
+
+The following table lists the CVE IDs addressed by the update in each vGPU Manager driver branch.
+
+
+| vGPU Manager Driver Branch | CVE IDs Addressed |
+|:-----------------------------|:--------------------------------------------------------------------------------------------------------------------------------------|
+| R550 | CVE‑2024‑0084, CVE‑2024‑0085, CVE‑2024‑0086, CVE‑2024‑0090, CVE‑2024‑0091, CVE‑2024‑0092, CVE‑2024‑0093, CVE‑2024‑0094, CVE‑2024‑0099 |
+| R535 | CVE‑2024‑0084, CVE‑2024‑0085, CVE‑2024‑0086, CVE‑2024‑0090, CVE‑2024‑0091, CVE‑2024‑0092, CVE‑2024‑0093, CVE‑2024‑0094 |
+| R470 | CVE‑2024‑0084, CVE‑2024‑0090, CVE‑2024‑0091, CVE‑2024‑0092, CVE‑2024‑0093, CVE‑2024‑0094 |
+#### Affected Components, Affected Versions, and Updated Versions
+
+
+The following table lists NVIDIA vGPU software components affected, versions affected, and the updated version that includes this security update. Download the updates through the NVIDIA Licensing Portal.
+
+
+| ('CVE IDs Addressed', 'CVE IDs Addressed') | ('vGPU Software Component', 'vGPU Software Component') | ('Operating System', 'Operating System') | ('Affected Versions', 'vGPU Software') | ('Affected Versions', 'Driver') | ('Updated Version', 'vGPU Software') | ('Updated Version', 'Driver') |
+|:--------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------|:------------------------------------------------------------------------|:-----------------------------------------|:----------------------------------|---------------------------------------:|:--------------------------------|
+| CVE‑2024‑0089 CVE‑2024‑0090 CVE‑2024‑0091 | Guest driver | Windows | All versions up to and including 17.1 | 551.78 | 17.2 | 552.55 |
+| CVE‑2024‑0089 CVE‑2024‑0090 CVE‑2024‑0091 | Guest driver | Windows | All versions up to and including 16.5 | 538.46 | 16.6 | 538.67 |
+| CVE‑2024‑0089 CVE‑2024‑0090 CVE‑2024‑0091 | Guest driver | Windows | All versions up to and including 13.10 | 474.82 | 13.11 | 475.06 |
+| CVE‑2024‑0090 CVE‑2024‑0091 | Guest driver | Linux | All versions up to and including 17.1 | 550.54.15 | 17.2 | 550.90.07 |
+| CVE‑2024‑0090 CVE‑2024‑0091 | Guest driver | Linux | All versions up to and including 16.5 | 535.161.08 | 16.6 | 535.183.01 |
+| CVE‑2024‑0090 CVE‑2024‑0091 | Guest driver | Linux | All versions up to and including 13.10 | 470.239.06 | 13.11 | 470.256.02 |
+| CVE‑2024‑0084 CVE‑2024‑0085 CVE‑2024‑0086 CVE‑2024‑0090 CVE‑2024‑0091 CVE‑2024‑0092 CVE‑2024‑0093 CVE‑2024‑0094 CVE‑2024‑0099 | Virtual GPU Manager | Citrix Hypervisor, VMware vSphere, Red Hat Enterprise Linux KVM, Ubuntu | All versions up to and including 17.1 | 550.54.16 | 17.2 | 550.90.05 |
+| CVE‑2024‑0084 CVE‑2024‑0085 CVE‑2024‑0086 CVE‑2024‑0090 CVE‑2024‑0091 CVE‑2024‑0092 CVE‑2024‑0093 CVE‑2024‑0094 CVE‑2024‑0099 | Virtual GPU Manager | Citrix Hypervisor, VMware vSphere, Red Hat Enterprise Linux KVM, Ubuntu | All versions up to and including 16.5 | 535.161.05 | 16.6 | 535.183.04 |
+| CVE‑2024‑0084 CVE‑2024‑0085 CVE‑2024‑0086 CVE‑2024‑0090 CVE‑2024‑0091 CVE‑2024‑0092 CVE‑2024‑0093 CVE‑2024‑0094 CVE‑2024‑0099 | Virtual GPU Manager | Citrix Hypervisor, VMware vSphere, Red Hat Enterprise Linux KVM, Ubuntu | All versions up to and including 13.10 | 470.239.01 | 13.11 | 470.256.02 |
+| CVE‑2024‑0085 CVE‑2024‑0090 CVE‑2024‑0091 CVE‑2024‑0092 | Virtual GPU Manager | Azure Stack HCI | All versions up to and including 17.1 | 551.60 | 17.2 | 552.55 |
+**Notes:**
+
+
+* The table above might not be a comprehensive list of all affected supported versions or branch releases and might be updated as more information becomes available.
+* Earlier software branch releases that support these products might also be affected. If you are using an earlier branch release for which an update version is not listed above, upgrade to the latest branch release.
+
+
+### Security Updates for NVIDIA Cloud Gaming
+
+
+#### Affected Components, Affected Versions, and Updated Versions
+
+
+The following table lists the NVIDIA software products affected, versions affected, and the updated version that includes this security update. Download the updates through the NVIDIA Licensing Portal.
+
+
+| ('CVE IDs Addressed', 'CVE IDs Addressed') | ('Cloud Gaming Component', 'Cloud Gaming Component') | ('Operating System', 'Operating System') | ('Affected Versions', 'Cloud Gaming Software') | ('Affected Versions', 'Driver') | ('Updated Version', 'Cloud Gaming Software') | ('Updated Version', 'Driver') |
+|:--------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------|:---------------------------------------------|:-----------------------------------------------------------|----------------------------------:|:-----------------------------------------------|:--------------------------------|
+| CVE‑2024‑0089 CVE‑2024‑0090 CVE‑2024‑0091 | Guest driver | Windows | All versions up to and including the April 2024 release | 552.12 | May 2024 release | 555.99 |
+| CVE‑2024‑0090 CVE‑2024‑0091 | Guest driver | Linux | All versions up to and including the April 2024 release | 550.73 | May 2024 release | 555.52.04 |
+| CVE‑2024‑0084 CVE‑2024‑0085 CVE‑2024‑0086 CVE‑2024‑0090 CVE‑2024‑0091 CVE‑2024‑0092 CVE‑2024‑0093 CVE‑2024‑0094 CVE‑2024‑0099 | Virtual GPU Manager | Red Hat Enterprise Linux KVM, VMware vSphere | All versions prior to and including the April 2024 release | 550.73 | May 2024 release | 555.52.04 |
+### Mitigations
+
+
+See [Security Updates for NVIDIA GPU Display Driver](#security-updates-gpu-display-driver), [Security Updates for NVIDIA vGPU Software](#security-updates-vgpu-software), or [Security Updates for NVIDIA Cloud Gaming](#security-updates-cloud-gaming) for the version to install.
 
 
 ### Acknowledgements
 
 
-NVIDIA thanks the following finders for reporting these issues:
+NVIDIA thanks the following people for reporting the issues to us:
 
 
-* CVE-2024-0095: pinkdraconian
-* CVE-2024-0103: Andrew Innes, Will Williams, Jamie Dougherty, Markus Hennerbichler
+CVE‑2024‑0089: CYS DET PEN - Siemens
 
 
-### Get the Most Up-to-Date Product Security Information
+CVE‑2024‑0090: Jisoo Jang, Joonkyo Jung, Yongwan Jo, and Dokyung Song - Yonsei University
+
+
+CVE‑2024‑0093: Frederik Pustelnik
+
+
+### Get the Most Up to Date Product Security Information
 
 
 Visit the [NVIDIA Product Security](https://www.nvidia.com/security) page to
@@ -79,21 +230,22 @@ Visit the [NVIDIA Product Security](https://www.nvidia.com/security) page to
 * Learn more about the vulnerability management process followed by the NVIDIA Product Security Incident Response Team (PSIRT)
 
 
-### 
-
-
 ### Revision History
-
 
 
 | Revision | Date | Description |
 |-----------:|:-------------|:----------------|
-| 1 | May 29, 2024 | Initial release |
-
+| 1 | June 6, 2024 | Initial release |
 ### Support
 
 
 If you have any questions about this security bulletin, contact [NVIDIA Support](https://www.nvidia.com/object/support.html).
+
+
+### Frequently Asked Questions (FAQs)
+
+
+[How do I determine which NVIDIA display driver version is currently installed on my PC?](https://nvidia.custhelp.com/app/answers/detail/a_id/2039)
 
 
 ##### Disclaimer
@@ -131,11 +283,11 @@ Answers others found helpful
 ----------------------------
 
 
-* [Security Notice: NVIDIA Response to Security Incident - March 2022](/app/answers/detail/a_id/5333/related/1)
-* [Security Bulletin: NVIDIA Jetson AGX Xavier, TX1, TX2, and Nano L4T - July 2020](/app/answers/detail/a_id/5039/related/1)
-* [Security Bulletin: NVIDIA Omniverse Kit - January 2023](/app/answers/detail/a_id/5418/related/1)
-* [Security Bulletin: NVIDIA SHIELD TV - January 2021](/app/answers/detail/a_id/5148/related/1)
-* [Security Bulletin: NVIDIA GeForce Experience - January 2023](/app/answers/detail/a_id/5384/related/1)
+* [How do I determine which NVIDIA display driver version is currently installed on my PC?](/app/answers/detail/a_id/2039/related/1)
+* [Support Plan for Kepler-series GeForce GPUs for Desktop](/app/answers/detail/a_id/5202/related/1)
+* [Security Bulletin: NVIDIA GPU Display Driver - October 2023](/app/answers/detail/a_id/5491/related/1)
+* [Security Bulletin: NVIDIA NVFlash, GPUModeSwitch Tool - November 2019](/app/answers/detail/a_id/4928/related/1)
+* [Security Bulletin: NVIDIA Jetson AGX Xavier Series, Jetson Xavier NX, Jetson TX1, Jetson TX2 Series (including Jetson TX2 NX) - April 2022](/app/answers/detail/a_id/5343/related/1)
 
 
 
