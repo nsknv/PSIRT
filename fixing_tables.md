@@ -37,9 +37,23 @@ This section provides a summary of potential vulnerabilities that this security 
 #### NVIDIA GPU Display Driver
 
 
+| CVE ID | Description | Vector | Base Score | Severity | CWE | Impacts |
+|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|-------------:|:-----------|:--------|:----------------------------------------------------------------------------------------------------|
+| CVE‑2024‑0090 | NVIDIA GPU driver for Windows and Linux contains a vulnerability where a user can cause an out-of-bounds write. A successful exploit of this vulnerability might lead to code execution, denial of service, escalation of privileges, information disclosure, and data tampering. | AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H | 7.8 | High | CWE‑787 | Code execution, denial of service, escalation of privileges, information disclosure, data tampering |
+| CVE‑2024‑0089 | NVIDIA GPU Display Driver for Windows contains a vulnerability where the information from a previous client or another process could be disclosed. A successful exploit of this vulnerability might lead to code execution, information disclosure, or data tampering. | AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H | 7.8 | High | CWE‑665 | Code execution, information disclosure, data tampering |
+| CVE‑2024‑0091 | NVIDIA GPU Display Driver for Windows and Linux contains a vulnerability where a user can cause an untrusted pointer dereference by executing a driver API. A successful exploit of this vulnerability might lead to denial of service, information disclosure, and data tampering. | AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H | 7.8 | High | CWE‑822 | Denial of service, information disclosure, data tampering |
+| CVE‑2024‑0093 | NVIDIA GPU software for Linux contains a vulnerability where it can expose sensitive information to an actor that is not explicitly authorized to have access to that information. A successful exploit of this vulnerability might lead to information disclosure. | AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:N/A:N | 6.5 | Medium | CWE‑200 | Information disclosure |
+| CVE‑2024‑0092 | NVIDIA GPU Driver for Windows and Linux contains a vulnerability where an improper check or improper handling of exception conditions might lead to denial of service. | AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H | 5.5 | Medium | CWE‑703 | Denial of service |
 #### NVIDIA vGPU Software
 
 
+| CVE ID | Description | Vector | Base Score | Severity | CWE | Impacts |
+|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|-------------:|:-----------|:--------|:------------------------------------------------------------------------------------|
+| CVE‑2024‑0099 | NVIDIA vGPU software for Linux contains a vulnerability in the Virtual GPU Manager, where the guest OS could cause buffer overrun in the host. A successful exploit of this vulnerability might lead to information disclosure, data tampering, escalation of privileges, and denial of service. | AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H | 7.8 | High | CWE‑120 | Information disclosure, data tampering, escalation of privileges, denial of service |
+| CVE‑2024‑0084 | NVIDIA vGPU software for Linux contains a vulnerability in the Virtual GPU Manager, where the guest OS could execute privileged operations. A successful exploit of this vulnerability might lead to information disclosure, data tampering, escalation of privileges, and denial of service. | AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H | 7.8 | High | CWE‑250 | Information disclosure, data tampering, escalation of privileges, denial of service |
+| CVE‑2024‑0085 | NVIDIA vGPU software for Windows and Linux contains a vulnerability where unprivileged users could execute privileged operations on the host. A successful exploit of this vulnerability might lead to data tampering, escalation of privileges, and denial of service. | AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:H/A:H | 6.3 | Medium | CWE‑266 | Data tampering, escalation of privileges, denial of service |
+| CVE‑2024‑0094 | NVIDIA vGPU software for Linux contains a vulnerability in the Virtual GPU Manager, where an untrusted guest VM can cause improper control of the interaction frequency in the host. A successful exploit of this vulnerability might lead to denial of service. | AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H | 5.5 | Medium | CWE‑799 | Denial of service |
+| CVE‑2024‑0086 | NVIDIA vGPU software for Linux contains a vulnerability where the software can dereference a NULL pointer. A successful exploit of this vulnerability might lead to denial of service and undefined behavior in the vGPU plugin. | AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H | 5.5 | Medium | CWE‑476 | Denial of service, undefined behavior |
 The NVIDIA risk assessment is based on an average of risk across a diverse set of installed systems and may not represent the true risk to your local installation. NVIDIA recommends consulting a security or IT professional to evaluate the risk to your specific configuration.
 
 
@@ -52,24 +66,58 @@ The NVIDIA risk assessment is based on an average of risk across a diverse set o
 The following table lists the CVE IDs addressed by the update in each Windows driver branch.
 
 
+| Windows Driver Branch | CVE IDs Addressed |
+|:------------------------|:-----------------------------------------------------------|
+| R555, R550 | CVE‑2024‑0089, CVE‑2024‑0090, CVE‑2024‑0091, CVE‑2024‑0092 |
+| R535, R470 | CVE‑2024‑0089, CVE‑2024‑0090, CVE‑2024‑0092 |
 #### Security Updates for NVIDIA GPU Windows Display Driver
 
 
 The following table lists the NVIDIA software products affected, Windows driver versions affected, and the updated version available from nvidia.com that includes this security update. Download the updates from the [NVIDIA Driver Downloads](https://www.nvidia.com/Download/index.aspx) page.
 
 
+| Software Product | Operating System | Driver Branch | Affected Driver Versions | Updated Driver Version |
+|:------------------------|:-------------------|:----------------|:--------------------------------------------------------------------------|-------------------------:|
+| GeForce | Windows | R555 | All driver versions prior to 555.99 | 555.99 |
+| GeForce | Windows 10 and 11 | R470 | All driver versions prior 475.06 to for support of GeForce Kepler desktop | 475.06 |
+| GeForce | Windows 7 and 8.x | R470 | All driver versions prior to 475.06 | 475.06 |
+| Studio | Windows | R555 | All driver versions prior to 555.99 | 555.99 |
+| NVIDIA RTX, Quadro, NVS | Windows | R555 | All driver versions prior to 555.99 | 555.99 |
+| NVIDIA RTX, Quadro, NVS | Windows | R550 | All driver versions prior to 552.55 | 552.55 |
+| NVIDIA RTX, Quadro, NVS | Windows | R535 | All driver versions prior to 538.67 | 538.67 |
+| NVIDIA RTX, Quadro, NVS | Windows | R470 | All driver versions prior to 475.06 | 475.06 |
+| Tesla | Windows | R550 | All driver versions prior to 552.55 | 552.55 |
+| Tesla | Windows | R535 | All driver versions prior to 538.67 | 538.67 |
+| Tesla | Windows | R470 | All driver versions prior to 475.06 | 475.06 |
 #### CVE IDs Addressed in Each Linux Driver Branch
 
 
 The following table lists the CVE IDs addressed by the update in each Linux driver branch.
 
 
+| Linux Driver Branch | CVE IDs Addressed |
+|:----------------------|:--------------------------------------------|
+| R555, R550 | CVE‑2024‑0090, CVE‑2024‑0091, CVE‑2024‑0092 |
+| R535, R470 | CVE‑2024‑0090, CVE‑2024‑0092 |
 #### Affected Components, Affected Versions, and Updated Versions
 
 
 The following table lists the NVIDIA software products affected, Linux driver versions affected, and the updated version available from nvidia.com that includes this security update. Download the updates from the [NVIDIA Driver Downloads](https://www.nvidia.com/Download/index.aspx) page.
 
 
+| Software Product | Operating System | Driver Branch | Affected Driver Versions | Updated Driver Version |
+|:------------------------|:-------------------|:----------------|:----------------------------------------|:-------------------------|
+| GeForce | Linux | R555 | All driver versions prior to 555.52.04 | 555.52.04 |
+| GeForce | Linux | R550 | All driver versions prior to 550.90.07 | 550.90.07 |
+| GeForce | Linux | R535 | All driver versions prior to 535.183.01 | 535.183.01 |
+| GeForce | Linux | R470 | All driver versions prior to 470.256.02 | 470.256.02 |
+| NVIDIA RTX, Quadro, NVS | Linux | R555 | All driver versions prior to 555.52.04 | 555.52.04 |
+| NVIDIA RTX, Quadro, NVS | Linux | R550 | All driver versions prior to 550.90.07 | 550.90.07 |
+| NVIDIA RTX, Quadro, NVS | Linux | R535 | All driver versions prior to 535.183.01 | 535.183.01 |
+| NVIDIA RTX, Quadro, NVS | Linux | R470 | All driver versions prior to 470.256.02 | 470.256.02 |
+| Tesla | Linux | R550 | All driver versions prior to 550.90.07 | 550.90.07 |
+| Tesla | Linux | R535 | All driver versions prior to 535.183.01 | 535.183.01 |
+| Tesla | Linux | R470 | All driver versions prior to 470.256.02 | 470.256.02 |
 #### Notes
 
 
@@ -87,24 +135,47 @@ The following table lists the NVIDIA software products affected, Linux driver ve
 The following table lists the CVE IDs addressed by the update in each Windows vGPU driver branch.
 
 
+| Windows Driver Branch | CVE IDs Addressed |
+|:------------------------|:--------------------------------------------|
+| R550, R535, R470 | CVE‑2024‑0089, CVE‑2024‑0090, CVE‑2024‑0091 |
 #### CVE IDs Addressed in Each Linux vGPU Driver Branch
 
 
 The following table lists the CVE IDs addressed by the update in each Linux vGPU driver branch.
 
 
+| Linux Driver Branch | CVE IDs Addressed |
+|:----------------------|:------------------------------|
+| R550, R535, R470 | CVE‑2024‑0090, CVE‑2024‑0091, |
 #### CVE IDs Addressed in Each vGPU Manager Driver Branch
 
 
 The following table lists the CVE IDs addressed by the update in each vGPU Manager driver branch.
 
 
+| vGPU Manager Driver Branch | CVE IDs Addressed |
+|:-----------------------------|:--------------------------------------------------------------------------------------------------------------------------------------|
+| R550 | CVE‑2024‑0084, CVE‑2024‑0085, CVE‑2024‑0086, CVE‑2024‑0090, CVE‑2024‑0091, CVE‑2024‑0092, CVE‑2024‑0093, CVE‑2024‑0094, CVE‑2024‑0099 |
+| R535 | CVE‑2024‑0084, CVE‑2024‑0085, CVE‑2024‑0086, CVE‑2024‑0090, CVE‑2024‑0091, CVE‑2024‑0092, CVE‑2024‑0093, CVE‑2024‑0094 |
+| R470 | CVE‑2024‑0084, CVE‑2024‑0090, CVE‑2024‑0091, CVE‑2024‑0092, CVE‑2024‑0093, CVE‑2024‑0094 |
 #### Affected Components, Affected Versions, and Updated Versions
 
 
 The following table lists NVIDIA vGPU software components affected, versions affected, and the updated version that includes this security update. Download the updates through the NVIDIA Licensing Portal.
 
 
+| ('CVE IDs Addressed', 'CVE IDs Addressed') | ('vGPU Software Component', 'vGPU Software Component') | ('Operating System', 'Operating System') | ('Affected Versions', 'vGPU Software') | ('Affected Versions', 'Driver') | ('Updated Version', 'vGPU Software') | ('Updated Version', 'Driver') |
+|:--------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------|:------------------------------------------------------------------------|:-----------------------------------------|:----------------------------------|---------------------------------------:|:--------------------------------|
+| CVE‑2024‑0089 CVE‑2024‑0090 CVE‑2024‑0091 | Guest driver | Windows | All versions up to and including 17.1 | 551.78 | 17.2 | 552.55 |
+| CVE‑2024‑0089 CVE‑2024‑0090 CVE‑2024‑0091 | Guest driver | Windows | All versions up to and including 16.5 | 538.46 | 16.6 | 538.67 |
+| CVE‑2024‑0089 CVE‑2024‑0090 CVE‑2024‑0091 | Guest driver | Windows | All versions up to and including 13.10 | 474.82 | 13.11 | 475.06 |
+| CVE‑2024‑0090 CVE‑2024‑0091 | Guest driver | Linux | All versions up to and including 17.1 | 550.54.15 | 17.2 | 550.90.07 |
+| CVE‑2024‑0090 CVE‑2024‑0091 | Guest driver | Linux | All versions up to and including 16.5 | 535.161.08 | 16.6 | 535.183.01 |
+| CVE‑2024‑0090 CVE‑2024‑0091 | Guest driver | Linux | All versions up to and including 13.10 | 470.239.06 | 13.11 | 470.256.02 |
+| CVE‑2024‑0084 CVE‑2024‑0085 CVE‑2024‑0086 CVE‑2024‑0090 CVE‑2024‑0091 CVE‑2024‑0092 CVE‑2024‑0093 CVE‑2024‑0094 CVE‑2024‑0099 | Virtual GPU Manager | Citrix Hypervisor, VMware vSphere, Red Hat Enterprise Linux KVM, Ubuntu | All versions up to and including 17.1 | 550.54.16 | 17.2 | 550.90.05 |
+| CVE‑2024‑0084 CVE‑2024‑0085 CVE‑2024‑0086 CVE‑2024‑0090 CVE‑2024‑0091 CVE‑2024‑0092 CVE‑2024‑0093 CVE‑2024‑0094 CVE‑2024‑0099 | Virtual GPU Manager | Citrix Hypervisor, VMware vSphere, Red Hat Enterprise Linux KVM, Ubuntu | All versions up to and including 16.5 | 535.161.05 | 16.6 | 535.183.04 |
+| CVE‑2024‑0084 CVE‑2024‑0085 CVE‑2024‑0086 CVE‑2024‑0090 CVE‑2024‑0091 CVE‑2024‑0092 CVE‑2024‑0093 CVE‑2024‑0094 CVE‑2024‑0099 | Virtual GPU Manager | Citrix Hypervisor, VMware vSphere, Red Hat Enterprise Linux KVM, Ubuntu | All versions up to and including 13.10 | 470.239.01 | 13.11 | 470.256.02 |
+| CVE‑2024‑0085 CVE‑2024‑0090 CVE‑2024‑0091 CVE‑2024‑0092 | Virtual GPU Manager | Azure Stack HCI | All versions up to and including 17.1 | 551.60 | 17.2 | 552.55 |
 **Notes:**
 
 
@@ -121,6 +192,11 @@ The following table lists NVIDIA vGPU software components affected, versions aff
 The following table lists the NVIDIA software products affected, versions affected, and the updated version that includes this security update. Download the updates through the NVIDIA Licensing Portal.
 
 
+| ('CVE IDs Addressed', 'CVE IDs Addressed') | ('Cloud Gaming Component', 'Cloud Gaming Component') | ('Operating System', 'Operating System') | ('Affected Versions', 'Cloud Gaming Software') | ('Affected Versions', 'Driver') | ('Updated Version', 'Cloud Gaming Software') | ('Updated Version', 'Driver') |
+|:--------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------|:---------------------------------------------|:-----------------------------------------------------------|----------------------------------:|:-----------------------------------------------|:--------------------------------|
+| CVE‑2024‑0089 CVE‑2024‑0090 CVE‑2024‑0091 | Guest driver | Windows | All versions up to and including the April 2024 release | 552.12 | May 2024 release | 555.99 |
+| CVE‑2024‑0090 CVE‑2024‑0091 | Guest driver | Linux | All versions up to and including the April 2024 release | 550.73 | May 2024 release | 555.52.04 |
+| CVE‑2024‑0084 CVE‑2024‑0085 CVE‑2024‑0086 CVE‑2024‑0090 CVE‑2024‑0091 CVE‑2024‑0092 CVE‑2024‑0093 CVE‑2024‑0094 CVE‑2024‑0099 | Virtual GPU Manager | Red Hat Enterprise Linux KVM, VMware vSphere | All versions prior to and including the April 2024 release | 550.73 | May 2024 release | 555.52.04 |
 ### Mitigations
 
 
@@ -157,6 +233,9 @@ Visit the [NVIDIA Product Security](https://www.nvidia.com/security) page to
 ### Revision History
 
 
+| Revision | Date | Description |
+|-----------:|:-------------|:----------------|
+| 1 | June 6, 2024 | Initial release |
 ### Support
 
 
@@ -216,97 +295,4 @@ Answers others found helpful
 
 
 
-
-
-
-| CVE ID        | Description                                                                                                                                                                                                                                                                         | Vector                              |   Base Score | Severity   | CWE     | Impacts                                                                                             |
-|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|-------------:|:-----------|:--------|:----------------------------------------------------------------------------------------------------|
-| CVE‑2024‑0090 | NVIDIA GPU driver for Windows and Linux contains a vulnerability where a user can cause an out-of-bounds write. A successful exploit of this vulnerability might lead to code execution, denial of service, escalation of privileges, information disclosure, and data tampering.   | AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H |          7.8 | High       | CWE‑787 | Code execution, denial of service, escalation of privileges, information disclosure, data tampering |
-| CVE‑2024‑0089 | NVIDIA GPU Display Driver for Windows contains a vulnerability where the information from a previous client or another process could be disclosed. A successful exploit of this vulnerability might lead to code execution, information disclosure, or data tampering.              | AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H |          7.8 | High       | CWE‑665 | Code execution, information disclosure, data tampering                                              |
-| CVE‑2024‑0091 | NVIDIA GPU Display Driver for Windows and Linux contains a vulnerability where a user can cause an untrusted pointer dereference by executing a driver API. A successful exploit of this vulnerability might lead to denial of service, information disclosure, and data tampering. | AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H |          7.8 | High       | CWE‑822 | Denial of service, information disclosure, data tampering                                           |
-| CVE‑2024‑0093 | NVIDIA GPU software for Linux contains a vulnerability where it can expose sensitive information to an actor that is not explicitly authorized to have access to that information. A successful exploit of this vulnerability might lead to information disclosure.                 | AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:N/A:N |          6.5 | Medium     | CWE‑200 | Information disclosure                                                                              |
-| CVE‑2024‑0092 | NVIDIA GPU Driver for Windows and Linux contains a vulnerability where an improper check or improper handling of exception conditions might lead to denial of service.                                                                                                              | AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H |          5.5 | Medium     | CWE‑703 | Denial of service                                                                                   |
-
-| CVE ID        | Description                                                                                                                                                                                                                                                                                      | Vector                              |   Base Score | Severity   | CWE     | Impacts                                                                             |
-|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|-------------:|:-----------|:--------|:------------------------------------------------------------------------------------|
-| CVE‑2024‑0099 | NVIDIA vGPU software for Linux contains a vulnerability in the Virtual GPU Manager, where the guest OS could cause buffer overrun in the host. A successful exploit of this vulnerability might lead to information disclosure, data tampering, escalation of privileges, and denial of service. | AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H |          7.8 | High       | CWE‑120 | Information disclosure, data tampering, escalation of privileges, denial of service |
-| CVE‑2024‑0084 | NVIDIA vGPU software for Linux contains a vulnerability in the Virtual GPU Manager, where the guest OS could execute privileged operations. A successful exploit of this vulnerability might lead to information disclosure, data tampering, escalation of privileges, and denial of service.    | AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H |          7.8 | High       | CWE‑250 | Information disclosure, data tampering, escalation of privileges, denial of service |
-| CVE‑2024‑0085 | NVIDIA vGPU software for Windows and Linux contains a vulnerability where unprivileged users could execute privileged operations on the host. A successful exploit of this vulnerability might lead to data tampering, escalation of privileges, and denial of service.                          | AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:H/A:H |          6.3 | Medium     | CWE‑266 | Data tampering, escalation of privileges, denial of service                         |
-| CVE‑2024‑0094 | NVIDIA vGPU software for Linux contains a vulnerability in the Virtual GPU Manager, where an untrusted guest VM can cause improper control of the interaction frequency in the host. A successful exploit of this vulnerability might lead to denial of service.                                 | AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H |          5.5 | Medium     | CWE‑799 | Denial of service                                                                   |
-| CVE‑2024‑0086 | NVIDIA vGPU software for Linux contains a vulnerability where the software can dereference a NULL pointer. A successful exploit of this vulnerability might lead to denial of service and undefined behavior in the vGPU plugin.                                                                 | AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H |          5.5 | Medium     | CWE‑476 | Denial of service, undefined behavior                                               |
-
-| Windows Driver Branch   | CVE IDs Addressed                                          |
-|:------------------------|:-----------------------------------------------------------|
-| R555, R550              | CVE‑2024‑0089, CVE‑2024‑0090, CVE‑2024‑0091, CVE‑2024‑0092 |
-| R535, R470              | CVE‑2024‑0089, CVE‑2024‑0090, CVE‑2024‑0092                |
-
-| Software Product        | Operating System   | Driver Branch   | Affected Driver Versions                                                  |   Updated Driver Version |
-|:------------------------|:-------------------|:----------------|:--------------------------------------------------------------------------|-------------------------:|
-| GeForce                 | Windows            | R555            | All driver versions prior to 555.99                                       |                   555.99 |
-| GeForce                 | Windows 10 and 11  | R470            | All driver versions prior 475.06 to for support of GeForce Kepler desktop |                   475.06 |
-| GeForce                 | Windows 7 and 8.x  | R470            | All driver versions prior to 475.06                                       |                   475.06 |
-| Studio                  | Windows            | R555            | All driver versions prior to 555.99                                       |                   555.99 |
-| NVIDIA RTX, Quadro, NVS | Windows            | R555            | All driver versions prior to 555.99                                       |                   555.99 |
-| NVIDIA RTX, Quadro, NVS | Windows            | R550            | All driver versions prior to 552.55                                       |                   552.55 |
-| NVIDIA RTX, Quadro, NVS | Windows            | R535            | All driver versions prior to 538.67                                       |                   538.67 |
-| NVIDIA RTX, Quadro, NVS | Windows            | R470            | All driver versions prior to 475.06                                       |                   475.06 |
-| Tesla                   | Windows            | R550            | All driver versions prior to 552.55                                       |                   552.55 |
-| Tesla                   | Windows            | R535            | All driver versions prior to 538.67                                       |                   538.67 |
-| Tesla                   | Windows            | R470            | All driver versions prior to 475.06                                       |                   475.06 |
-
-| Linux Driver Branch   | CVE IDs Addressed                           |
-|:----------------------|:--------------------------------------------|
-| R555, R550            | CVE‑2024‑0090, CVE‑2024‑0091, CVE‑2024‑0092 |
-| R535, R470            | CVE‑2024‑0090, CVE‑2024‑0092                |
-
-| Software Product        | Operating System   | Driver Branch   | Affected Driver Versions                | Updated Driver Version   |
-|:------------------------|:-------------------|:----------------|:----------------------------------------|:-------------------------|
-| GeForce                 | Linux              | R555            | All driver versions prior to 555.52.04  | 555.52.04                |
-| GeForce                 | Linux              | R550            | All driver versions prior to 550.90.07  | 550.90.07                |
-| GeForce                 | Linux              | R535            | All driver versions prior to 535.183.01 | 535.183.01               |
-| GeForce                 | Linux              | R470            | All driver versions prior to 470.256.02 | 470.256.02               |
-| NVIDIA RTX, Quadro, NVS | Linux              | R555            | All driver versions prior to 555.52.04  | 555.52.04                |
-| NVIDIA RTX, Quadro, NVS | Linux              | R550            | All driver versions prior to 550.90.07  | 550.90.07                |
-| NVIDIA RTX, Quadro, NVS | Linux              | R535            | All driver versions prior to 535.183.01 | 535.183.01               |
-| NVIDIA RTX, Quadro, NVS | Linux              | R470            | All driver versions prior to 470.256.02 | 470.256.02               |
-| Tesla                   | Linux              | R550            | All driver versions prior to 550.90.07  | 550.90.07                |
-| Tesla                   | Linux              | R535            | All driver versions prior to 535.183.01 | 535.183.01               |
-| Tesla                   | Linux              | R470            | All driver versions prior to 470.256.02 | 470.256.02               |
-
-| Windows Driver Branch   | CVE IDs Addressed                           |
-|:------------------------|:--------------------------------------------|
-| R550, R535, R470        | CVE‑2024‑0089, CVE‑2024‑0090, CVE‑2024‑0091 |
-
-| Linux Driver Branch   | CVE IDs Addressed             |
-|:----------------------|:------------------------------|
-| R550, R535, R470      | CVE‑2024‑0090, CVE‑2024‑0091, |
-
-| vGPU Manager Driver Branch   | CVE IDs Addressed                                                                                                                     |
-|:-----------------------------|:--------------------------------------------------------------------------------------------------------------------------------------|
-| R550                         | CVE‑2024‑0084, CVE‑2024‑0085, CVE‑2024‑0086, CVE‑2024‑0090, CVE‑2024‑0091, CVE‑2024‑0092, CVE‑2024‑0093, CVE‑2024‑0094, CVE‑2024‑0099 |
-| R535                         | CVE‑2024‑0084, CVE‑2024‑0085, CVE‑2024‑0086, CVE‑2024‑0090, CVE‑2024‑0091, CVE‑2024‑0092, CVE‑2024‑0093, CVE‑2024‑0094                |
-| R470                         | CVE‑2024‑0084, CVE‑2024‑0090, CVE‑2024‑0091, CVE‑2024‑0092, CVE‑2024‑0093, CVE‑2024‑0094                                              |
-
-| ('CVE IDs Addressed', 'CVE IDs Addressed')                                                                                            | ('vGPU Software Component', 'vGPU Software Component')   | ('Operating System', 'Operating System')                                | ('Affected Versions', 'vGPU Software')   | ('Affected Versions', 'Driver')   |   ('Updated Version', 'vGPU Software') | ('Updated Version', 'Driver')   |
-|:--------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------|:------------------------------------------------------------------------|:-----------------------------------------|:----------------------------------|---------------------------------------:|:--------------------------------|
-| CVE‑2024‑0089  CVE‑2024‑0090  CVE‑2024‑0091                                                                                           | Guest driver                                             | Windows                                                                 | All versions up to and including 17.1    | 551.78                            |                                  17.2  | 552.55                          |
-| CVE‑2024‑0089  CVE‑2024‑0090  CVE‑2024‑0091                                                                                           | Guest driver                                             | Windows                                                                 | All versions up to and including 16.5    | 538.46                            |                                  16.6  | 538.67                          |
-| CVE‑2024‑0089  CVE‑2024‑0090  CVE‑2024‑0091                                                                                           | Guest driver                                             | Windows                                                                 | All versions up to and including 13.10   | 474.82                            |                                  13.11 | 475.06                          |
-| CVE‑2024‑0090  CVE‑2024‑0091                                                                                                          | Guest driver                                             | Linux                                                                   | All versions up to and including 17.1    | 550.54.15                         |                                  17.2  | 550.90.07                       |
-| CVE‑2024‑0090  CVE‑2024‑0091                                                                                                          | Guest driver                                             | Linux                                                                   | All versions up to and including 16.5    | 535.161.08                        |                                  16.6  | 535.183.01                      |
-| CVE‑2024‑0090  CVE‑2024‑0091                                                                                                          | Guest driver                                             | Linux                                                                   | All versions up to and including 13.10   | 470.239.06                        |                                  13.11 | 470.256.02                      |
-| CVE‑2024‑0084  CVE‑2024‑0085  CVE‑2024‑0086  CVE‑2024‑0090  CVE‑2024‑0091  CVE‑2024‑0092  CVE‑2024‑0093  CVE‑2024‑0094  CVE‑2024‑0099 | Virtual GPU Manager                                      | Citrix Hypervisor, VMware vSphere, Red Hat Enterprise Linux KVM, Ubuntu | All versions up to and including 17.1    | 550.54.16                         |                                  17.2  | 550.90.05                       |
-| CVE‑2024‑0084  CVE‑2024‑0085  CVE‑2024‑0086  CVE‑2024‑0090  CVE‑2024‑0091  CVE‑2024‑0092  CVE‑2024‑0093  CVE‑2024‑0094  CVE‑2024‑0099 | Virtual GPU Manager                                      | Citrix Hypervisor, VMware vSphere, Red Hat Enterprise Linux KVM, Ubuntu | All versions up to and including 16.5    | 535.161.05                        |                                  16.6  | 535.183.04                      |
-| CVE‑2024‑0084  CVE‑2024‑0085  CVE‑2024‑0086  CVE‑2024‑0090  CVE‑2024‑0091  CVE‑2024‑0092  CVE‑2024‑0093  CVE‑2024‑0094  CVE‑2024‑0099 | Virtual GPU Manager                                      | Citrix Hypervisor, VMware vSphere, Red Hat Enterprise Linux KVM, Ubuntu | All versions up to and including 13.10   | 470.239.01                        |                                  13.11 | 470.256.02                      |
-| CVE‑2024‑0085  CVE‑2024‑0090  CVE‑2024‑0091  CVE‑2024‑0092                                                                            | Virtual GPU Manager                                      | Azure Stack HCI                                                         | All versions up to and including 17.1    | 551.60                            |                                  17.2  | 552.55                          |
-
-| ('CVE IDs Addressed', 'CVE IDs Addressed')                                                                                            | ('Cloud Gaming Component', 'Cloud Gaming Component')   | ('Operating System', 'Operating System')     | ('Affected Versions', 'Cloud Gaming Software')             |   ('Affected Versions', 'Driver') | ('Updated Version', 'Cloud Gaming Software')   | ('Updated Version', 'Driver')   |
-|:--------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------|:---------------------------------------------|:-----------------------------------------------------------|----------------------------------:|:-----------------------------------------------|:--------------------------------|
-| CVE‑2024‑0089  CVE‑2024‑0090  CVE‑2024‑0091                                                                                           | Guest driver                                           | Windows                                      | All versions up to and including the April 2024 release    |                            552.12 | May 2024 release                               | 555.99                          |
-| CVE‑2024‑0090  CVE‑2024‑0091                                                                                                          | Guest driver                                           | Linux                                        | All versions up to and including the April 2024 release    |                            550.73 | May 2024 release                               | 555.52.04                       |
-| CVE‑2024‑0084  CVE‑2024‑0085  CVE‑2024‑0086  CVE‑2024‑0090  CVE‑2024‑0091  CVE‑2024‑0092  CVE‑2024‑0093  CVE‑2024‑0094  CVE‑2024‑0099 | Virtual GPU Manager                                    | Red Hat Enterprise Linux KVM, VMware vSphere | All versions prior to and including the April 2024 release |                            550.73 | May 2024 release                               | 555.52.04                       |
-
-|   Revision | Date         | Description     |
-|-----------:|:-------------|:----------------|
-|          1 | June 6, 2024 | Initial release |
 
